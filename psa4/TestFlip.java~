@@ -1,0 +1,23 @@
+/* Filename: TestFlip.java 
+* Created by: CSE 8A Staff
+* Date: Fall 2017
+*/ 
+
+public class TestFlip {
+ public static void main(String [] args)
+ {
+   //Choose a picture file
+   String sourceFile = FileChooser.pickAFile();
+   Picture sourcePicture = new Picture(sourceFile);
+   
+   //Copy your Picture objects
+   //Picture copy1 = ...
+   //Picture copy2 = ...
+
+   //Call flipVerticalRectangle and flipHorizontalRectangle on your copies
+
+   //Show both copies!
+   
+ }  
+  
+}

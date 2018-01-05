@@ -1,0 +1,32 @@
+/* Filename: TestCollage.java 
+* Created by: CSE 8A Staff
+* Date: Fall 2017
+*/ 
+
+/*I've given you a basic skeleton of how your code is going to look so you can get a basic idea of the workflow here*/
+public class TestCollage {
+ public static void main(String [] args)
+ {
+   //Choose a picture file
+   String sourceFile = FileChooser.pickAFile();
+   Picture sourcePicture = new Picture(sourceFile);
+   
+   //Copy your Picture objects
+   //Picture copy1 = ...
+   
+   //Call your transformtions here;
+   sourcePicture.flipHorizontal(); //this won't work unless you've already implemented flipHorizontal() in Picture.java
+   sourcePicture.show();
+   //Do the same thing with the other 2 picture copies when you've finished implementing the other 2 transformations
+
+   //Create your array of Pictures
+   //Picture [] pictures = ...
+   
+   //Create a picture object using the canvas which we will be drawing our collage on
+   //Picture canvas = new Picture(...)
+   
+   //Call collage() with your canvas and show it!
+   
+ }
+ 
+}

@@ -1,0 +1,8 @@
+4
+1000.0
+3.0
+900.0
+50.0 250.0 1.00 0.01 1e-20 images/earth.gif
+-350.0 -250.0 0.01 1.00 1e-20 images/venus.gif
+50.0 -250.0 -2.00 0.01 1e-20 images/mars.gif
+750.0 450.0 -1.00 -1.00 1e-20 images/mercury.gif

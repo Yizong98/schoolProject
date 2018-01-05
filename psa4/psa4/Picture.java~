@@ -1,0 +1,341 @@
+/* Created by: Jiayan Dong, cs8afqa
+ * Partner: Yijian Zong, cs8afhp
+ * Date: 11/05/2017
+ */
+
+/*--------PROGRAM DESCRIPTION----------
+ goes here
+  [Part A: Collage]
+  Make an image collage by combining three identical images side by side.
+  The first image is flipped horizontally.
+  The second imageis flipped vertically.
+  The third image is grayscale.
+  Bring up the file chooser that allows you to choose a photo from your media resources directory.
+  Show the original picture.
+  The collage is created on a canvas.
+  The width of the canvas is 3 times the width of the Picture.
+  The height of the canvas is the same as the one we chose.
+  Copy the original picture twice.
+  So we have 3 picture objects, each with an identical photo.
+  Call each of our transformation methods on each Picture.
+  Get 3 pictures that have been transformed in 3 different ways.
+  Show each transformed photo individually.
+  Create a collage out of the pictures included in the input parameter array.
+  This is an array of Pictures. 
+  Each element in this array is a Picture reference.
+  All the pictures in the array are the same dimensions
+  The empty array store references to 3 Picture objects. 
+  Set each position in the array to refer to our 3 picture objects.
+  Use our canvas object to call collage(Picture [] pictures).
+  Show the canvas with the complete collage on it.
+  
+  
+  [Part B: Picture Flip]
+  Create methods to flip only a piece of a picture in either the horizontal or vertical orientation.  
+  Create a new Picture using FileChooser.pickAFile().
+  Show the original Picture.
+  Create two copies of the Picture
+
+  Add a method called flipVerticalRectangle() to Picture.java.
+  Flip a rectangle of dimensions length by width and height in the vertical orientation in the calling object.
+  This method will take in 4 parameters.
+  (x, y) denotes the coordinates of the center of the rectangle.
+  x value of the pixel remains the same.
+  The width and height of the rectangle box to flip. 
+  Iterate ONLY within the rectangle that we've defined with x, y, width and height.
+  
+  Add a method called flipHorizontalRectangle() to Picture.java.
+  Flip a rectangle of dimensions length by width and height in the horizontal orientation in the calling object.
+  This method will take in 4 parameters. 
+  (x, y) denotes the coordinates of the center of the rectangle.   
+  y value of the pixel remains the same. 
+  Iterate ONLY within the rectangle that we've defined with x, y, width and height.
+  
+  Show both transformed, copied images.
+  
+  
+  Add a method called testFlipRectangle to Picture.java.
+  testFlipRectangle tests for both the flipVerticalRectangle and the flipHorizontalRectangle methods.
+  In main method, make a new Picture object that corresponds to the coding.jpg picture.  
+  Create four new copies of that object.  
+  Name these objects copy1, copy2, copy3, and copy4. 
+  Call flipVeriticalRectangle()on copy1 with parameters (200, 200, 100, 300)   
+  and on copy2 with parameters (100, 100, 200, 200). 
+  Call flipHorizontalRectangle() on copy3 with parameters (200, 200, 100, 300)  
+  and copy4 with parameters (100, 100, 200, 200). 
+  In main method, make four more new Picture objects  
+  verticalResult1, verticalResult2, horizontalResult2, horizontalResult2 
+  that correspond to the following pictures:
+  vertical-rectangle-200-200-100-300.bmp 
+  vertical-rectangle-100-100-200-200.bmp 
+  horizontal-rectangle-200-200-100-300.bmp 
+  horizontal-rectangle-100-100-200-200.bmp 
+  Call our testFlipRectangle() method on our horizontal and vertically flipped pictures. 
+  Print our result.  
+  Do the same print statements for: 
+  flipVerticalRenctangle(100, 100, 200, 200)  
+  comparing copy2 and verticalResult2,   
+  flipHorizontalRectangle(200, 200, 100, 300) 
+  comparing copy3 and horizontalResult1, 
+  flipHorizontalRectangle(100, 100, 200, 200)
+  comparing copy4 and horizontalResult2.  
+  Compares the calling object with the parameter picture. 
+  It returns false if any pixel between these two pictures is different. 
+  It returns true otherwise. 
+  
+ */
+import java.awt.Color;
+import java.awt.*;
+import java.awt.font.*;
+import java.awt.geom.*;
+import java.awt.image.BufferedImage;
+import java.text.*;
+import java.util.*;
+import java.util.List; // resolves problem with java.awt.List and java.util.List
+
+/**
+ * A class that represents a picture.  This class inherits from 
+ * SimplePicture and allows the student to add functionality to
+ * the Picture class.  
+ * 
+ * Copyright Georgia Institute of Technology 2004-2005
+ * @author Barbara Ericson ericson@cc.gatech.edu
+ */
+public class Picture extends SimplePicture 
+{
+  ///////////////////// constructors //////////////////////////////////
+  
+  /**
+   * Constructor that takes no arguments 
+   */
+  public Picture ()
+  {
+    /* not needed but use it to show students the implicit call to super()
+     * child constructors always call a parent constructor 
+     */
+    super();  
+  }
+  
+  /**
+   * Constructor that takes a file name and creates the picture 
+   * @param fileName the name of the file to create the picture from
+   */
+  public Picture(String fileName)
+  {
+    // let the parent class handle this fileName
+    super(fileName);
+  }
+  
+  /**
+   * Constructor that takes the width and height
+   * @param width the width of the desired picture
+   * @param height the height of the desired picture
+   */
+  public Picture(int width, int height)
+  {
+    // let the parent class handle this width and height
+    super(width,height);
+  }
+  
+  /**
+   * Constructor that takes a picture and creates a 
+   * copy of that picture
+   */
+  public Picture(Picture copyPicture)
+  {
+    // let the parent class do the copy
+    super(copyPicture);
+  }
+  
+  /**
+   * Constructor that takes a buffered image
+   * @param image the buffered image to use
+   */
+  public Picture(BufferedImage image)
+  {
+    super(image);
+  }
+  
+  ////////////////////// methods ///////////////////////////////////////
+  
+  /**
+   * Method to return a string with information about this picture.
+   * @return a string with information about the picture such as fileName,
+   * height and width.
+   */
+  public String toString()
+  {
+    String output = "Picture, filename " + getFileName() + 
+      " height " + getHeight() 
+      + " width " + getWidth();
+    return output;
+    
+  }
+  
+  /**
+   * Horizontal flip method
+   * In this method, I've given you the basic structure of how things will look.  There are a few incomplete assignments inside of the method.  It is your job to figure out how to complete those assignments!
+   * This method works almost like the horizontal mirroring method you saw in your text book (pg 135), but instead of mirroring on the middle of the image, we want to flip it all the way.
+   * Hint: Why do we need tempColor in this case?  I encourage you to reflect on this question if you find your method not working the way it should!**/
+public void flipHorizontal()
+  {
+    Color tempColor;
+    int limit1 = this.getWidth();
+    int limit2 = this.getHeight();
+    for(int x = 0; x < limit1/2; x++)
+    {
+      for(int y = 0; y < limit2; y++)
+      {
+        Pixel leftPixel = this.getPixel(x,y);
+        Pixel rightPixel = this.getPixel(limit1-1-x,y);
+        tempColor = rightPixel.getColor();
+        rightPixel.setColor(leftPixel.getColor());
+        leftPixel.setColor(tempColor);
+      }
+    }
+    
+  }
+  
+  /**
+   * Vertical flip method
+   * No hints for this one! **/
+  public void flipVertical()
+  {
+    Color tempColor;
+    int limit1 = this.getWidth();
+    int limit2 = this.getHeight();
+    Pixel upperPixel, lowerPixel;
+    for(int x = 0; x < limit1; x++)
+    {
+      for(int y = 0; y < limit2/2; y++)
+      {
+        upperPixel = this.getPixel(x,y);
+        lowerPixel = this.getPixel(x,limit2-1-y);
+        tempColor = upperPixel.getColor();
+        upperPixel.setColor(lowerPixel.getColor());
+        lowerPixel.setColor(tempColor);
+      }
+    }
+    
+  }
+  
+  /*
+   * Create the gray equivalent of each pixel between the provided indices
+   * Input: start - the index of the first pixel to be modified (inclusive)
+   *        end - the index of the last pixel to be modified (inclusive)
+   * Returns: nothing
+   */
+  
+  public void grayscale()
+  {
+    Pixel[] originPixel = this.getPixels();
+    int colorIntensity =0;
+    //loop through all pixels in the calling object and parameter 
+    for(int index=0;index<originPixel.length;index++){
+      colorIntensity = (int) ((originPixel[index].getRed() + originPixel[index].getGreen() 
+                                 +originPixel[index].getBlue()) / 3);
+      originPixel[index].setGreen(colorIntensity);
+      originPixel[index].setBlue(colorIntensity);
+      originPixel[index].setRed(colorIntensity);   
+    }
+    
+  }
+  
+  /**The collage method
+    * This method will create the collage of your modified pictures.  
+    * Hint 1: Inside of the for loop here will be another 2 nested for loops, giving you a grand total of 3 nested for loops in this method
+    * Hint 2: If you're clever about the way you decide to draw your pixels onto the canvas, you may only have to write ONE LINE OF CODE inside the inner-most for loop to achieve the desired collage effect!
+    * However, more than one line inside of the nested for loops is perfectly fine, of course! **/
+  public void collage(Picture [] pictures)
+  { 
+    for(int i = 0; i < pictures.length; i++)
+    {
+      for(int x = 0; x< pictures[i].getWidth();x++)
+      {
+        for(int y = 0; y< pictures[i].getHeight();y++)
+        {
+         this.getPixel(x+i*pictures[i].getWidth(),y).setColor(pictures[i].getPixel(x,
+                                                          y).getColor());
+      }
+      
+    }
+  }
+  }
+  /*
+   * TODO:
+   * Write flipVerticalRectangle, flipHorizontalRectangle, and testFlipRectangle methods here **/
+  public void flipVerticalRectangle(int x, int y, int width, int height){
+    Color tempColor;
+    Pixel upperPixel,lowerPixel;
+    if (x-width/2+width-1>=this.getWidth()||y-height/2+height-1>=this.getHeight()){
+      System.out.println("Sorry you the rectangle flipped is not valid");
+      System.exit(0);
+      }
+    for (int startx= x-width/2;startx <=x-width/2+width-1;startx++){
+      for (int starty = y-height/2;starty<y;starty++){
+        upperPixel = this.getPixel(startx,starty);
+        lowerPixel = this.getPixel(startx,y - height/2+ height - 1-(starty-y + height/2));
+        tempColor = upperPixel.getColor();
+        upperPixel.setColor(lowerPixel.getColor());
+        lowerPixel.setColor(tempColor);
+        
+      }
+    }
+    
+    
+  }
+
+  
+  public void flipHorizontalRectangle(int x, int y, int width, int height){
+    Color tempColor;
+    Pixel leftPixel,rightPixel;
+    if (x-width/2+width-1>=this.getWidth()||y-height/2+height-1>=this.getHeight()){
+      System.out.println("Sorry you the rectangle flipped is not valid");
+      System.exit(0);
+    }
+    for (int startx= x-width/2;startx < x;startx++){
+      for (int starty = y-height/2;starty<=y-height/2+height-1;starty++){
+        
+        leftPixel = this.getPixel(startx,starty);
+        rightPixel = this.getPixel(x - width/2+ width - 1-(startx-x + width/2),starty);
+        tempColor = rightPixel.getColor();
+        rightPixel.setColor(leftPixel.getColor());
+        leftPixel.setColor(tempColor);
+        
+      }
+    }
+    
+  }
+          
+  public boolean testFlipRectangle(Picture result)
+  {
+    //loop through all pixels in the calling object and parameter 
+    //picture using nested loops on x and y
+    for(int x=0; x<result.getWidth();x++){
+      for(int y=0; y<result.getHeight();y++){
+        Pixel sP = this.getPixel(x, y);
+        Pixel tP = result.getPixel(x, y);
+        if( sP.getRed() != tP.getRed())
+          return false;
+        if( sP.getBlue() != tP.getBlue())
+          return false;
+        if( sP.getGreen() != tP.getGreen())
+          return false;
+      }
+    }
+    //Similarly for blue and green. 
+    //outside the nested loop, we return true as if we reach here
+    //it is guaranteed that all pixels between the calling obj and
+    //the parameter picture are the same.
+    
+    return true;
+  }
+
+
+    
+  
+  
+       
+         
+} // this } is the end of class Picture, put all new methods before this
+ 

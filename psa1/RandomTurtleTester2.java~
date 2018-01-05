@@ -1,0 +1,26 @@
+
+/* Filename: TurtleFun.java 
+ * Created by: Yijian Zong, cs8afhp
+ * Date: 10/11/2017
+ */ 
+import java.util.Random;
+//This is the code for testing.
+public class RandomTurtleTester
+{
+    //The line below is magic, you don't have to understand it (yet)
+    public static void main (String[] args) 
+    { 
+      //Create world and turtles. 
+      World world = new World(800,800);
+      Turtle cris1 = new Turtle(400,800,world);
+      cris1.takeStep(1,new Random());
+      cris1.takeStep(-1,new Random());
+      World world2 = new World(800,800);
+      Turtle cris2 = new Turtle(400,400,world2);
+      System.out.println( cris2.rwPosition(10, new Random()));
+      World world3 = new World(800,800);
+      Turtle cris3 = new Turtle(400,800,world3);
+      System.out.println(cris3.countSteps(6, new Random()));
+      
+    } 
+}

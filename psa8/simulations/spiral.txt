@@ -1,0 +1,21 @@
+17
+2.50e11
+25000.0
+12778800.0
+  0.0        0.0        0.0       0.0     1.989e30        images/sun.gif
+  0.0       16.0e10     2.0e4    -2.0e4   5.974e24        images/mars.gif
+-16.0e10     0.0        2.0e4     2.0e4   5.974e24        images/mars.gif
+  0.0      -16.0e10    -2.0e4     2.0e4   5.974e24        images/mars.gif
+ 16.0e10     0.0       -2.0e4    -2.0e4   5.974e24        images/mars.gif
+  6.0e10     6.0e10    -5.0e3     5.0e4   5.974e27        images/venus.gif
+ -6.0e10     6.0e10    -5.0e4    -5.0e3   5.974e27        images/venus.gif
+ -6.0e10    -6.0e10     5.0e3    -5.0e4   5.974e27        images/venus.gif
+  6.0e10    -6.0e10     5.0e4     5.0e3   5.974e27        images/venus.gif
+ 18.0e10    18.0e10    -1.0e4     1.0e2   6.419e23        images/mars.gif
+-18.0e10    18.0e10     1.0e2    -1.0e4   6.419e23        images/mars.gif
+-18.0e10   -18.0e10     1.0e4     1.0e2   6.419e23        images/mars.gif
+ 18.0e10   -18.0e10    -1.0e2     1.0e4   6.419e23        images/mars.gif
+  0.0       23.0e10     1.0e4    -1.0e4   5.974e23        images/mars.gif
+-23.0e10     0.0        1.0e4     1.0e4   5.974e23        images/mars.gif
+  0.0      -23.0e10    -1.0e4     1.0e4   5.974e23        images/mars.gif
+ 23.0e10     0.0       -1.0e4    -1.0e4   5.974e23        images/mars.gif

@@ -1,0 +1,22 @@
+13
+7.50e12
+35000
+29778800
+1.496e11 0.000e00 0.000e00 2.980e04 5.974e24 images/earth.gif
+6.579e12 0.000e00 3.410e05 0.000e00 1.3055e22 images/pluto.gif
+5.790e10 0.000e00 0.000e00 4.790e04 3.302e23 images/mercury.gif
+0.000e00 0.000e00 0.000e00 0.000e00 1.989e30 images/sun.gif
+1.082e11 0.000e00 0.000e00 3.500e04 4.869e24 images/venus.gif
+3.59e13 0.000e00  -1.641e06 0.000e00 6.419e33 images/pluto.gif
+2.279e11 0.000e00 0.000e00 2.410e04 6.419e23 images/mars.gif
+7.779e11 0.000e00 0.000e00 1.307e04 1.899e27  images/jupiter.gif
+1.427e12 0.000e00 0.000e00 9.639e03 5.6846e26 images/saturn.gif
+5.503e12 0.000e00 0.000e00 5.432e03 1.0243e26 images/neptune.gif
+2.870e12 0.000e00 0.000e00 6.795e03 8.683e25 images/uranus.gif
+0.000e00 -9.99e12 0.000e00 1.999e06 1.000000 images/goodbye.gif
+0.000e00 -3.50e13 0.000e00 1.999e06 1.000000 images/imback.gif
+
+Creator of the Universe: Andrew Dixon
+
+Pluto's vengeance
+

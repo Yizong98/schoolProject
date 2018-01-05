@@ -1,0 +1,14 @@
+public class TestPictures
+{
+    //The line below is magic, you don't have to understand it (yet)
+    public static void main (String[] args)
+    { 
+     //test the methods scaleColor, alphaBlending.
+     Picture sthDope = new Picture(FileChooser.pickAFile());
+     Picture copy = new Picture(sthDope);
+     sthDope.explore();
+     copy.edgeDetection(10);
+     copy.explore();
+     
+    }
+}
